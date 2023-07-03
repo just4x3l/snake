@@ -41,20 +41,6 @@ class Snake:
         head = self.head()
         self.positions.append(head.add(delta_pos))
 
-        # if self.dir == 'up':
-        #     delta_pos = (0, 1)
-        # elif self.dir == 'right':
-        #     delta_pos = (1, 0)
-        # elif self.dir == 'down':
-        #     delta_pos = (0, -1)
-        # elif self.dir == 'left':
-        #     delta_pos = (-1, 0)
-
-        # result = tuple(map(lambda i, j: i + j, self.positions[-1], delta_pos))
-        #
-        # # new_pos = (result[0] % self.board_width, result[1] % self.board_height)
-        # self.positions.append(result)
-
     def alive(self):
         head = self.head()
         if head.x < 0 or head.x >= self.board_width or head.y < 0 or head.y >= self.board_height:

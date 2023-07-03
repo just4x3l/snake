@@ -1,6 +1,8 @@
 import pyglet
 
 from game_window import GameWindow
+from position import Position
+from direction import Direction
 
 config = {
     "board_offset_x": 20,
@@ -10,6 +12,9 @@ config = {
     "rows": 15,
     "columns": 20,
     "box_size": 30,
+
+    "initial_snake_positions": [Position(0, 0), Position(1, 0)],
+    "initial_snake_direction": Direction.RIGHT
 }
 
 if __name__ == '__main__':

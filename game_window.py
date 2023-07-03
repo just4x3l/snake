@@ -25,9 +25,12 @@ class GameWindow(pyglet.window.Window):
 
         self.background = pyglet.shapes.Rectangle(0, 0, self.width, self.height, color=(100, 100, 100))
 
-        self.board = Board(width=config["columns"], height=config["rows"], box_size=config["box_size"],
+        self.board = Board(width=config["columns"], height=config["rows"],
+                           box_size=config["box_size"],
                            board_offset_x=config["board_offset_x"], board_offset_y=config["board_offset_y"],
-                           outside_border_width=config["outside_border_width"])
+                           outside_border_width=config["outside_border_width"],
+                           initial_snake_positions=config["initial_snake_positions"],
+                           initial_snake_direction=config["initial_snake_direction"])
 
     def on_draw(self):
         self.clear()

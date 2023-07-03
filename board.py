@@ -8,7 +8,7 @@ from food import Food
 
 
 class Board:
-    def __init__(self, width, height, box_size, board_offset_x, board_offset_y, outside_border_width):
+    def __init__(self, width, height, box_size, board_offset_x, board_offset_y, outside_border_width, initial_snake_positions, initial_snake_direction):
         self.width = width
         self.height = height
         self.box_size = box_size
@@ -24,12 +24,13 @@ class Board:
                                               color=(50, 50, 50))
 
         self.snake = Snake(board_width=width, board_height=height,
-                           initial_positions=[Position(0, 0), Position(1, 0), Position(2, 0)],
-                           initial_direction=Direction.RIGHT)
+                           initial_positions=initial_snake_positions,
+                           initial_direction=initial_snake_direction)
 
-        self.initial_food_position = Position(4, 0)
+        self.initial_food_position = Position(0, 0)
         self.food = Food(self.initial_food_position, self.offset_x, self.offset_y, self.box_size, self.width,
                          self.height)
+        self.food.random_reposition(self.snake.positions)
 
     def initialize_board(self):
         self.batch = pyglet.graphics.Batch()
